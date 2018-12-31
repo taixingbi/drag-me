@@ -1,4 +1,5 @@
-
+var element= document.getElementById('box')
+draggable(element);
 
 function draggable(element) {
   //alert("alert")
@@ -15,11 +16,7 @@ function draggable(element) {
   // mouse button down over the element
   element.addEventListener('mousedown', onMouseDown);
 
-  /**
-   * Listens to `mousedown` event.
-   *
-   * @param {Object} event - The event.
-   */
+  
   function onMouseDown(event) {
     mouseX = event.clientX;
     mouseY = event.clientY;
@@ -29,11 +26,7 @@ function draggable(element) {
   // mouse button released
   element.addEventListener('mouseup', onMouseUp);
 
-  /**
-   * Listens to `mouseup` event.
-   *
-   * @param {Object} event - The event.
-   */
+  
   function onMouseUp(event) {
     isMouseDown = false;
     elementX = parseInt(element.style.left) || 0;
@@ -45,11 +38,6 @@ function draggable(element) {
   // this ensures the element keeps up with the mouse
   document.addEventListener('mousemove', onMouseMove);
 
-  /**
-   * Listens to `mousemove` event.
-   *
-   * @param {Object} event - The event.
-   */
   function onMouseMove(event) {
     if (!isMouseDown) return;
     var deltaX = event.clientX - mouseX;
