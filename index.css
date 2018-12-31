@@ -1,0 +1,16 @@
+#box {
+    background-color: lightgrey;
+    position: relative;
+    height: 100px;
+    width: 100px;
+  }
+  
+  #box:hover {
+    background-color: skyblue;
+    cursor: move;
+  }
+  
+  #box:active {
+    background-color: tomato;
+  }
+  
