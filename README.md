@@ -1,3 +1,6 @@
+![alt text](https://github.com/taixingbi/drag-me/blob/master/drag-me.png)
+
+
 #### start http
         node server.js
 
