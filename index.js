@@ -21,6 +21,7 @@ function draggable(element) {
     //https://www.w3schools.com/jsref/event_clientx.asp
     mouseX = event.clientX;
     mouseY = event.clientY;
+
     isMouseDown = true;
   }
 
@@ -37,10 +38,33 @@ function draggable(element) {
 
   function onMouseMove(event) {
     if (!isMouseDown) return;
+
     var deltaX = event.clientX - mouseX;
     var deltaY = event.clientY - mouseY;
-    element.style.left = elementX + deltaX + 'px';
-    element.style.top = elementY + deltaY + 'px';
+
+    var left= elementX + deltaX ;
+    var top= elementY + deltaY ;
+    
+    const offset= 10
+
+    if(left < 0){
+        left= 0 + offset
+    }
+
+    if(left > 500){
+        left= 500 + offset
+    }
+
+    if(top < 0){
+        top= 0 + offset
+    }
+
+    if(top > 400){
+        top= 400 + offset
+    }
+
+    element.style.left = left + 'px';
+    element.style.top = top+ 'px';
   }
 
 }
