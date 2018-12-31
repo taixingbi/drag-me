@@ -3,6 +3,7 @@ draggable(element);
 
 function draggable(element) {
   //alert("alert")
+
   var isMouseDown = false;
 
   // initial mouse X and Y for `mousedown`
@@ -13,29 +14,25 @@ function draggable(element) {
   var elementX = 0;
   var elementY = 0;
 
-  // mouse button down over the element
+  //-------------------------mouse down----------------------------
+  //https://www.w3schools.com/jsref/event_onmousedown.asp
   element.addEventListener('mousedown', onMouseDown);
-
-  
   function onMouseDown(event) {
+    //https://www.w3schools.com/jsref/event_clientx.asp
     mouseX = event.clientX;
     mouseY = event.clientY;
     isMouseDown = true;
   }
 
-  // mouse button released
+  //-------------------------mouse up----------------------------
   element.addEventListener('mouseup', onMouseUp);
-
-  
   function onMouseUp(event) {
     isMouseDown = false;
     elementX = parseInt(element.style.left) || 0;
     elementY = parseInt(element.style.top) || 0;
   }
 
-  // need to attach to the entire document
-  // in order to take full width and height
-  // this ensures the element keeps up with the mouse
+  //-------------------------mouse move----------------------------
   document.addEventListener('mousemove', onMouseMove);
 
   function onMouseMove(event) {
@@ -45,6 +42,8 @@ function draggable(element) {
     element.style.left = elementX + deltaX + 'px';
     element.style.top = elementY + deltaY + 'px';
   }
+
 }
+
 
 
